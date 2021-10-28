@@ -22,15 +22,24 @@ public class PlayerCharacter : MonoBehaviour
             animator.SetFloat("runspeed", Input.GetAxis("Vertical"));
             transform.position += transform.forward * Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
         }
-        else
-        {
-            animator.SetFloat("runspeed", Input.GetAxis("Vertical"));
 
+        if (Input.GetAxis("Horizontal") != 0)
+        {
+            animator.SetBool("run", true);
+            animator.SetFloat("runspeed", Input.GetAxis("Vertical"));
+            transform.Rotate(Vector3.up * Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime);
+
+        }
+
+        if(Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0)
+        {
             animator.SetBool("run", false);
         }
 
-        transform.Rotate(Vector3.up* Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime);
-
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Shoot();
+        }
     }
     void Damage(int value)
     {
@@ -39,6 +48,7 @@ public class PlayerCharacter : MonoBehaviour
     }
     void Shoot()
     {
+        animator.SetTrigger("shoot");
 
     }
 }

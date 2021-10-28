@@ -170,8 +170,69 @@ Transform:
   - {fileID: 472584815}
   - {fileID: 1936579136}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &361452339
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 1cfd8190a6ea6174f94428ac0b93c7a8, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1cfd8190a6ea6174f94428ac0b93c7a8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.1377077
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1cfd8190a6ea6174f94428ac0b93c7a8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0000009536743
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1cfd8190a6ea6174f94428ac0b93c7a8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.9413409
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1cfd8190a6ea6174f94428ac0b93c7a8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1cfd8190a6ea6174f94428ac0b93c7a8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1cfd8190a6ea6174f94428ac0b93c7a8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1cfd8190a6ea6174f94428ac0b93c7a8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1cfd8190a6ea6174f94428ac0b93c7a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1cfd8190a6ea6174f94428ac0b93c7a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1cfd8190a6ea6174f94428ac0b93c7a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1cfd8190a6ea6174f94428ac0b93c7a8, type: 3}
+      propertyPath: m_Name
+      value: Ch15_nonPBR
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 1cfd8190a6ea6174f94428ac0b93c7a8, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 0d02b874ccaa63240a564c55c719843a, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1cfd8190a6ea6174f94428ac0b93c7a8, type: 3}
 --- !u!1001 &472584811
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -228,6 +289,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: fcb334eb247ae3e488abb081c847cf09, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: fcb334eb247ae3e488abb081c847cf09, type: 3}
+    - target: {fileID: 9500000, guid: fcb334eb247ae3e488abb081c847cf09, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -241,13 +306,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: fcb334eb247ae3e488abb081c847cf09, type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'Bip001 L Hand'\n\tTransform 'Bip001 R Foot'\n\tTransform
-        'Bip001 R Finger0'\n\tTransform 'Bip001 R Toe0'\n\tTransform 'Bip001 Head'\n\tTransform
-        'Bip001 Spine1'\n\tTransform 'Bip001 R UpperArm'\n\tTransform 'Bip001 L UpperArm'\n\tTransform
-        'Bip001 L Forearm'\n\tTransform 'Bip001 R Thigh'\n\tand more ...\n\tFrom
-        animation clip 'demo_combat_shoot'"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: fcb334eb247ae3e488abb081c847cf09, type: 3}
       propertyPath: m_ApplyRootMotion
@@ -360,7 +419,7 @@ Transform:
   m_LocalScale: {x: 5, y: 1, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
@@ -453,7 +512,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &963194225
 GameObject:
@@ -552,7 +611,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1936579136}
-  offsetPosition: {x: 0, y: 2.5, z: -5}
+  offsetPosition: {x: 0, y: 0, z: -5}
   offsetPositionSpace: 1
   lookAt: 1
 --- !u!1 &1936579135
