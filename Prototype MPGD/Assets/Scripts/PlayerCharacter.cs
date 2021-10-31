@@ -4,13 +4,29 @@ public class PlayerCharacter : MonoBehaviour
 {
     public int moveSpeed = 5;
     public int rotationSpeed = 2;
-    public int health = 100;
+    public int maxHealth = 100;
+    public int health;
+    public int maxShield = 100;
+    public int shield;
 
     [SerializeField]
     private Animator animator;
+
+    public HealthBar healthBar;
+    public ArmorBar armorBar;
+    
+
+    public Gun gun;
+
     // Start is called before the first frame update
     void Start()
     {
+        health = maxHealth;
+        shield = maxShield;
+        healthBar.SetMaxHealth(maxHealth);
+        armorBar.SetMaxArmor(maxShield);
+        //ammo.setText(gun.currentAmmo);
+
     }
 
     // Update is called once per frame
@@ -36,19 +52,28 @@ public class PlayerCharacter : MonoBehaviour
             animator.SetBool("run", false);
         }
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Mouse0))
         {
             Shoot();
         }
+
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            gun.Reload();
+        }
+
     }
-    void Damage(int value)
+    void Damage(int value,int value2)
     {
         health -= value;
-
+        shield -= value2;
+        healthBar.SetHealth(health);
+        armorBar.SetArmor(shield);
     }
+
     void Shoot()
     {
+        gun.Shoot();
         animator.SetTrigger("shoot");
-
     }
 }

@@ -322,9 +322,13 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/VSSettingsProvider.ref.dll"
-"Assets/Scripts/CameraFollow.cs"
+"Assets/Scripts/ArmorBar.cs"
+"Assets/Scripts/ChangeText.cs"
+"Assets/Scripts/Gun.cs"
+"Assets/Scripts/HealthBar.cs"
+"Assets/Scripts/PauseScript.cs"
+"Assets/Scripts/PickupRotates.cs"
 "Assets/Scripts/PlayerCharacter.cs"
-"Assets/Scripts/testGun.cs"
 -langversion:8.0
 
 /deterministic
