@@ -18,25 +18,26 @@ public class Hitbox : MonoBehaviour
     {
         
     }
-    void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collider other)
     {
         //If colliding with a pickup object, deactivate it.
         if (other.gameObject.tag == "HealthPickUp")
         {
+    
             other.gameObject.SetActive(false);
-            player.Damage(-50, 0);
-
-            //Update the game about this collection
+            player.Damage(50, 0);
         }
+            //Update the game about this collection
+       
         if (other.gameObject.tag == "ArmorPickUp")
         {
             other.gameObject.SetActive(false);
-            player.Damage(0, -50);
+            player.Damage(0, 50);
         }
         //if colliding with an enemy character, decrease health by a set amount.
         if (other.gameObject.tag == "Enemy")
         {
-            other.gameObject.SetActive(false);
+            //other.gameObject.SetActive(false);
             player.Damage(50, 50);
 
             //Update the game about this collection
