@@ -1,9 +1,11 @@
+using System;
 using UnityEngine;
 
 public class PlayerCharacter : MonoBehaviour
 {
     public int moveSpeed = 5;
     public int rotationSpeed = 2;
+    public int jumpForce = 10;
     public int maxHealth = 100;
     public int health;
     public int maxShield = 100;
@@ -12,7 +14,7 @@ public class PlayerCharacter : MonoBehaviour
 
     [SerializeField]
     private Animator animator;
-
+    private Rigidbody rigidbody;
     public HealthBar healthBar;
     public ArmorBar armorBar;
     
@@ -26,6 +28,8 @@ public class PlayerCharacter : MonoBehaviour
         shield = maxShield;
         healthBar.SetMaxHealth(maxHealth);
         armorBar.SetMaxArmor(maxShield);
+
+        rigidbody = GetComponent<Rigidbody>();
     }
 
 
@@ -57,14 +61,23 @@ public class PlayerCharacter : MonoBehaviour
         {
             Shoot();
         }
-
-        if(Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Jump();
+        }
+        if (Input.GetKeyDown(KeyCode.R))
         {
             gun.Reload();
         }
 
     }
 
+    private void Jump()
+    {
+        if(rigidbody.velocity.y==0)
+        rigidbody.AddForce(Vector3.up *jumpForce , ForceMode.Impulse);
+        
+    }
 
     public void SetHealth(int value){
         health += value;

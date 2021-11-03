@@ -18,7 +18,8 @@ public class Hitbox : MonoBehaviour
     {
         
     }
-    void OnCollisionEnter(Collider other)
+
+    void OnCollisionEnter(Collision other)
     {
         //If colliding with a pickup object, deactivate it.
         if (other.gameObject.tag == "HealthPickUp")
