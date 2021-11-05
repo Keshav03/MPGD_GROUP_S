@@ -129,11 +129,11 @@ public class PlayerCharacter : MonoBehaviour
             }
         }
 
-        if (collisionInfo.collider.tag == "Enemy"){
+        //if (collisionInfo.collider.tag == "Enemy"){
             //Destroy(obj);
             
-            Damage(-25,-25);
-        }
+            //Damage(-25,-25);
+       // }
 
     }
 
