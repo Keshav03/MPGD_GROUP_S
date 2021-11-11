@@ -85,4 +85,8 @@ Library\Bee\artifacts\movedfrom\UnityEditor.OSXStandalone.Extensions.dll_6418188
 Library\Bee\artifacts\movedfrom\UnityEditor.UWP.Extensions.dll_12462873055081661260.movedfrom
 Library\Bee\artifacts\movedfrom\UnityEditor.WebGL.Extensions.dll_5220778965186251473.movedfrom
 Library\Bee\artifacts\movedfrom\UnityEditor.WindowsStandalone.Extensions.dll_9008648969054334785.movedfrom
+<<<<<<< Updated upstream
 Library\Bee\artifacts\movedfrom\Unity.Plastic.Newtonsoft.Json.dll_17915052217746776356.movedfrom
+=======
+Library\Bee\artifacts\movedfrom\Unity.Plastic.Newtonsoft.Json.dll_5752500559177566970.movedfrom
+>>>>>>> Stashed changes
