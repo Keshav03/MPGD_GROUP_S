@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//A script used for the rotation of the pickup objects.
 public class PickupRotates : MonoBehaviour
 {
 
