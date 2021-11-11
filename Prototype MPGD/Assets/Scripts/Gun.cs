@@ -45,17 +45,17 @@ public class Gun : MonoBehaviour
 
     public void update()
     {
-        // if (Input.GetButtonDown("Fire1") && currentAmmo > 0 && Time.time > nextFire)
-        // {
-        //     nextFire = Time.time + fireRate;
-        //     Shoot();
-        // }
+         if (Input.GetButtonDown("Fire1") && currentAmmo > 0 && Time.time > nextFire)
+         {
+             nextFire = Time.time + fireRate;
+             Shoot();
+         }
 
-        // if (Input.GetKeyDown(KeyCode.R) && currentAmmo < magazineSize && !reloading)
-        // {
-        //     reloading = true;
-        //     Reload();
-        // }
+         if (Input.GetKeyDown(KeyCode.R) && currentAmmo < magazineSize && !reloading)
+         {
+             reloading = true;
+             Reload();
+         }
 
     }
 

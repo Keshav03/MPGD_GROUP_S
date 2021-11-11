@@ -87,6 +87,10 @@ public class PlayerCharacter : MonoBehaviour
             health = maxHealth;
         }
         healthBar.SetHealth(health);
+        if (health <= 0)
+        {
+            gameOver();
+        }
     }
 
     public void SetArmor(int value){
@@ -142,6 +146,10 @@ public class PlayerCharacter : MonoBehaviour
             gameController.ItemCollected();
         }
 
+    }
+    public void gameOver()
+    {
+        gameController.reset();
     }
 
 

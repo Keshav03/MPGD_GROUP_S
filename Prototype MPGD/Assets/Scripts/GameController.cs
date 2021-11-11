@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class GameController : MonoBehaviour
 {
@@ -49,5 +51,18 @@ public class GameController : MonoBehaviour
             winText.text = "You Win!";
         }
        
+    }
+    public void reset()
+    {
+        StartCoroutine("Reset");
+    }
+    IEnumerator Reset()
+    {
+        Objectives.text = "";
+        Objectives2.text = "";
+        winText.text = "Game over!";
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        StartCoroutine("Reset");
     }
 }
