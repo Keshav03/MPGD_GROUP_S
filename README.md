@@ -29,7 +29,7 @@ Esc = Pause
 5. If the player's Health is less than the maximum, they can pick up Health pickups (which are coloured red).
 
 ### How to play
-Use the link containing the WebGL Build of the game on GitHub Pages.
+Use the link containing the WebGL Build of the game on GitHub Pages. Else, run the project files on Unity. The scene to be used for the prototype is "SampleScene".
 
 ## Authors
 Keshav Yogeshwar Bokhoree, ec19416@qmul.ac.uk
