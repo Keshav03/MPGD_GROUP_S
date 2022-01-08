@@ -7,13 +7,13 @@ using UnityEngine;
 public class Hitbox : MonoBehaviour
 {
     //Variables to be used.
-    public PlayerCharacter player;
+    public PlayerCharacterIn player;
  
     // Start is called before the first frame update
     void Start()
     {
         GameObject gameO = GameObject.FindGameObjectWithTag("Player"); //Make a GameObject for the player/
-        player = gameO.GetComponent<PlayerCharacter>(); //Set GameObject of player to the type player.
+        player = gameO.GetComponent<PlayerCharacterIn>(); //Set GameObject of player to the type player.
     }
 
     //Function used for collisions between the hitbox and objects of type Enemy.

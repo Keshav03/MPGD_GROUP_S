@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 //A script used to define the behaviour of the controlled playable character.
-public class PlayerCharacter : MonoBehaviour
+public class PlayerCharacterIn : MonoBehaviour
 {
     //Variables to be used.
     public int moveSpeed = 5;
