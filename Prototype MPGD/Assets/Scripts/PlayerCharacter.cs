@@ -25,7 +25,13 @@ public class PlayerCharacter : MonoBehaviour
     //Call upon the Gun object to allow the player's behaviour to affect the gun's behaviour.
     public Gun gun;
 
+
     //Used to initialise the variables of the player alongside the variables in the Game Controller pertaining to the player.
+
+    public GameObject gameOverMenu ;
+    public static bool GameIsPause = false;
+
+
     void Start()
     {
         health = maxHealth;
@@ -166,7 +172,10 @@ public class PlayerCharacter : MonoBehaviour
     //A function used to make the game reset if the player's Health reaches 0.
     public void gameOver()
     {
-        gameController.reset();
+        gameOverMenu.SetActive(true);
+        GameIsPause = true;
+        Time.timeScale = 0f;
+        gameController.reset(); 
     }
 
 

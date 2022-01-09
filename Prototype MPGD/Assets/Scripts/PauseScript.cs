@@ -33,7 +33,7 @@ public class PauseScript : MonoBehaviour
     }
 
     //Used to set the game's state to active if the game is on a state of 'Resume'. Removes the Pause menu.
-    void Resume()
+    public void Resume()
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
@@ -41,12 +41,16 @@ public class PauseScript : MonoBehaviour
     }
 
     //Used to set the game's state to inactive if the game is on a state of 'Pause'. Displays the Pause Menu.
-    void Pause()
+    public void Pause()
     {
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         GameIsPause = true;
     }
 
+    public void Exit()
+    {
+        Application.Quit();
+    }
 
 }
