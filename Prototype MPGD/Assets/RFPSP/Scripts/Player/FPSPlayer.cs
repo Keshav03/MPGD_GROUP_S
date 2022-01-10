@@ -306,8 +306,9 @@ public class FPSPlayer : MonoBehaviour {
 
 	private Transform myTransform;
 
-	void Start (){	
+	void Start (){
 
+		AudioListener.volume = 0;
 		if(removePrefabRoot){
 			GameObject prefabRoot = transform.parent.transform.gameObject;
 			transform.parent.transform.DetachChildren();
@@ -509,7 +510,7 @@ public class FPSPlayer : MonoBehaviour {
 				if(!paused){
 					menuTime = Time.timeScale;
 				}
-				Time.timeScale = 0.0f;
+				//Time.timeScale = 0.0f;
 			}else{
 				Time.timeScale = menuTime;	
 			}
@@ -519,7 +520,7 @@ public class FPSPlayer : MonoBehaviour {
 			if(Time.timeScale > 0.0f){
 				paused = true;
 				pauseTime = Time.timeScale;
-				Time.timeScale = 0.0f;
+				//Time.timeScale = 0.0f;
 			}else{
 				paused = false;
 				Time.timeScale = pauseTime;	
