@@ -311,9 +311,13 @@ public class FPSPlayer : MonoBehaviour
 
 	private Transform myTransform;
 
-    private int shield=100;
+    private int shield=50;
 	private int maxShield = 100;
 	public Text shieldText;
+
+	private int collected = 0;
+	public Text collectedText;
+
 	public Text pickupCollected;
 
 
@@ -491,7 +495,8 @@ public class FPSPlayer : MonoBehaviour
 			warmupUiObj.SetActive(true);
 			warmupUiObjShadow.SetActive(true);
 		}
-
+		shieldText.text = "Shield : " + shield;
+		collectedText.text = "Items Collected : " + collected;
 	}
 
 
@@ -1675,8 +1680,8 @@ public class FPSPlayer : MonoBehaviour
 		//If colliding with a Health pickup.
 		if (collisionInfo.collider.tag == "HealthPickUp")
 		{
-
-			obj.SetActive(false);
+			if (hitPoints < maximumHitPoints - 25)
+				obj.SetActive(false);
 
 			HealPlayer(25, false);
 
@@ -1702,6 +1707,9 @@ public class FPSPlayer : MonoBehaviour
 		{
 			obj.SetActive(false);
 			pickupCollected.gameObject.SetActive(true);
+			collected++;
+			collectedText.text = "Items Collected  : " + collected;
+
 			Invoke("OffItemCollected", 2);
 		}
 
