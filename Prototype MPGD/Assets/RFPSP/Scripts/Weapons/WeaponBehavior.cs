@@ -2114,6 +2114,10 @@ public class WeaponBehavior : MonoBehaviour {
 	
 	//weapon or projectile damage and effects for collider that is hit
 	void HitObject ( RaycastHit hit, Vector3 directionArg, bool isSecondCast = false ){
+		if (hit.collider.tag == "Enemy")
+		{
+			hit.transform.GetComponent<AIScript>().OnHit(damage);
+		}
 		// Apply a force to the rigidbody we hit
 		if (hit.rigidbody && hit.rigidbody.useGravity){
 			hit.rigidbody.AddForceAtPosition(force * directionArg / (Time.fixedDeltaTime * 100.0f), hit.point);//scale the force with the Fixed Timestep setting

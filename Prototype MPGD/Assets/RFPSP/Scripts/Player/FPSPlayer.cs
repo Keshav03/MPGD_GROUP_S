@@ -105,6 +105,8 @@ public class FPSPlayer : MonoBehaviour
 	private ThirstText ThirstText2;
 	private Text ThirstUIText;
 
+	private SphereCollider sphereCollider;
+
 	[HideInInspector]
 	public float crosshairWidth;
 	[Tooltip("Size of crosshair relative to screen size.")]
@@ -311,19 +313,18 @@ public class FPSPlayer : MonoBehaviour
 
 	private Transform myTransform;
 
-    private int shield=50;
-	private int maxShield = 100;
+	private float shield = 50;
+	private float maxShield = 100;
 	public Text shieldText;
 
 	private int collected = 0;
 	public Text collectedText;
 
-	public Text pickupCollected;
-
 
 	void Start()
 	{
-
+		GameObject gameC = GameObject.FindGameObjectWithTag("GameController"); //Call the game controller to alter the game itself duringg enemy and player interactions.
+		gameController = gameC.GetComponent<GameController>(); //Set gameController to type GameController.
 		AudioListener.volume = 0;
 		if (removePrefabRoot)
 		{
@@ -537,6 +538,7 @@ public class FPSPlayer : MonoBehaviour
 
 	void Update()
 	{
+		sphereCollider = GetComponent<SphereCollider>();
 
 		//detect if menu display button was pressed
 		if (InputComponent.menuPress && MainMenuComponent.useMainMenu)
@@ -1445,184 +1447,192 @@ public class FPSPlayer : MonoBehaviour
 	{
 
 		float appliedPainKickAmt;
-
-		if (hitPoints < 1.0f)
-		{//Don't apply damage if player is dead
-			if (!showHpUnderZero) { hitPoints = 0.0f; }
-			return;
-		}
-
-		//detect if attacker is inside player block zone
-		if (attacker != null
-		&& WeaponBehaviorComponent.zoomIsBlock
-		&& WeaponBehaviorComponent.blockDefenseAmt > 0.0f
-		&& zoomed
-		&& ((WeaponBehaviorComponent.onlyBlockMelee && isMeleeAttack) || !WeaponBehaviorComponent.onlyBlockMelee)
-		&& WeaponBehaviorComponent.shootStartTime + WeaponBehaviorComponent.fireRate < Time.time)
+		if (shield > 0f)
 		{
-
-			Vector3 toTarget = (attacker.position - myTransform.position).normalized;
-			blockAngle = Vector3.Dot(toTarget, myTransform.forward);
-
-			if (Vector3.Dot(toTarget, myTransform.forward) > WeaponBehaviorComponent.blockCoverage)
-			{
-
-				damage *= 1f - WeaponBehaviorComponent.blockDefenseAmt;
-				otherfx.clip = WeaponBehaviorComponent.blockSound;
-				otherfx.PlayOneShot(otherfx.clip, 1.0f);
-
-				if (blockParticles)
-				{
-					if (!CameraControlComponent.thirdPersonActive)
-					{
-						blockParticles.transform.position = mainCamTransform.position + mainCamTransform.forward * (blockParticlesPos + CameraControlComponent.zoomDistance + CameraControlComponent.currentDistance);
-					}
-					else
-					{
-						blockParticles.transform.position = myTransform.position + (mainCamTransform.forward * blockParticlesPos) + (transform.up * 0.5f);
-					}
-					foreach (Transform child in blockParticles.transform)
-					{//emit all particles in the particle effect game object group stored in blockParticles var
-						blockParticleSys = child.GetComponent<ParticleSystem>();
-						blockParticleSys.Emit(Mathf.RoundToInt(blockParticleSys.emission.rateOverTime.constant));//emit the particle(s)
-					}
-				}
-				blockState = true;
-			}
-		}
-
-		timeLastDamaged = Time.time;
-
-		Quaternion painKickRotation;//Set up rotation for pain view kicks
-		int painKickUpAmt = 0;
-		int painKickSideAmt = 0;
-
-		if (!invulnerable)
-		{
-			hitPoints -= damage;//Apply damage
-		}
-
-		//set health hud value to hitpoints remaining
-		HealthText.healthGui = Mathf.Round(hitPoints);
-		HealthText2.healthGui = Mathf.Round(hitPoints);
-
-		//change color of hud health element based on hitpoints remaining
-		if (hitPoints <= 25.0f)
-		{
-			healthUiText.color = Color.red;
-		}
-		else if (hitPoints <= 40.0f)
-		{
-			healthUiText.color = Color.yellow;
+			shield -= damage;
+			shieldText.text = "Shield : " + shield;
 		}
 		else
 		{
-			healthUiText.color = HealthText.textColor;
-		}
+			if (hitPoints < 1.0f)
+			{//Don't apply damage if player is dead
+				if (!showHpUnderZero) { hitPoints = 0.0f; }
+				return;
+			}
 
-		if (!blockState)
-		{
-			painFadeColor = PainColor;
-			painFadeColor.a = PainColor.a + (Random.value * 0.1f);//fade pain overlay based on damage amount
-			painFadeObj.SetActive(true);
-			painFadeComponent.StartCoroutine(painFadeComponent.FadeIn(painFadeColor, 0.75f));//Call FadeIn function in painFadeObj to fade screen red when damage taken
-		}
+			//detect if attacker is inside player block zone
+			if (attacker != null
+			&& WeaponBehaviorComponent.zoomIsBlock
+			&& WeaponBehaviorComponent.blockDefenseAmt > 0.0f
+			&& zoomed
+			&& ((WeaponBehaviorComponent.onlyBlockMelee && isMeleeAttack) || !WeaponBehaviorComponent.onlyBlockMelee)
+			&& WeaponBehaviorComponent.shootStartTime + WeaponBehaviorComponent.fireRate < Time.time)
+			{
 
-		if (!FPSWalkerComponent.holdingBreath)
-		{
-			//Play pain sound when getting hit
+				Vector3 toTarget = (attacker.position - myTransform.position).normalized;
+				blockAngle = Vector3.Dot(toTarget, myTransform.forward);
+
+				if (Vector3.Dot(toTarget, myTransform.forward) > WeaponBehaviorComponent.blockCoverage)
+				{
+
+					damage *= 1f - WeaponBehaviorComponent.blockDefenseAmt;
+					otherfx.clip = WeaponBehaviorComponent.blockSound;
+					otherfx.PlayOneShot(otherfx.clip, 1.0f);
+
+					if (blockParticles)
+					{
+						if (!CameraControlComponent.thirdPersonActive)
+						{
+							blockParticles.transform.position = mainCamTransform.position + mainCamTransform.forward * (blockParticlesPos + CameraControlComponent.zoomDistance + CameraControlComponent.currentDistance);
+						}
+						else
+						{
+							blockParticles.transform.position = myTransform.position + (mainCamTransform.forward * blockParticlesPos) + (transform.up * 0.5f);
+						}
+						foreach (Transform child in blockParticles.transform)
+						{//emit all particles in the particle effect game object group stored in blockParticles var
+							blockParticleSys = child.GetComponent<ParticleSystem>();
+							blockParticleSys.Emit(Mathf.RoundToInt(blockParticleSys.emission.rateOverTime.constant));//emit the particle(s)
+						}
+					}
+					blockState = true;
+				}
+			}
+
+			timeLastDamaged = Time.time;
+
+			Quaternion painKickRotation;//Set up rotation for pain view kicks
+			int painKickUpAmt = 0;
+			int painKickSideAmt = 0;
+
+			if (!invulnerable)
+			{
+				hitPoints -= damage;//Apply damage
+			}
+
+			//set health hud value to hitpoints remaining
+			HealthText.healthGui = Mathf.Round(hitPoints);
+			HealthText2.healthGui = Mathf.Round(hitPoints);
+
+			//change color of hud health element based on hitpoints remaining
+			if (hitPoints <= 25.0f)
+			{
+				healthUiText.color = Color.red;
+			}
+			else if (hitPoints <= 40.0f)
+			{
+				healthUiText.color = Color.yellow;
+			}
+			else
+			{
+				healthUiText.color = HealthText.textColor;
+			}
+
 			if (!blockState)
-			{//don't play hit sound if blocking attack
-				if (Time.time > gotHitTimer && painBig && painLittle)
-				{
-					// Play a big pain sound
-					if (hitPoints < 40.0f || damage > 30.0f)
+			{
+				painFadeColor = PainColor;
+				painFadeColor.a = PainColor.a + (Random.value * 0.1f);//fade pain overlay based on damage amount
+				painFadeObj.SetActive(true);
+				painFadeComponent.StartCoroutine(painFadeComponent.FadeIn(painFadeColor, 0.75f));//Call FadeIn function in painFadeObj to fade screen red when damage taken
+			}
+
+			if (!FPSWalkerComponent.holdingBreath)
+			{
+				//Play pain sound when getting hit
+				if (!blockState)
+				{//don't play hit sound if blocking attack
+					if (Time.time > gotHitTimer && painBig && painLittle)
 					{
-						otherfx.clip = painBig;
-						otherfx.PlayOneShot(otherfx.clip, 1.0f);
-						gotHitTimer = Time.time + Random.Range(.5f, .75f);
-					}
-					else
-					{
-						//Play a small pain sound
-						otherfx.clip = painLittle;
-						otherfx.PlayOneShot(otherfx.clip, 1.0f);
-						gotHitTimer = Time.time + Random.Range(.5f, .75f);
+						// Play a big pain sound
+						if (hitPoints < 40.0f || damage > 30.0f)
+						{
+							otherfx.clip = painBig;
+							otherfx.PlayOneShot(otherfx.clip, 1.0f);
+							gotHitTimer = Time.time + Random.Range(.5f, .75f);
+						}
+						else
+						{
+							//Play a small pain sound
+							otherfx.clip = painLittle;
+							otherfx.PlayOneShot(otherfx.clip, 1.0f);
+							gotHitTimer = Time.time + Random.Range(.5f, .75f);
+						}
 					}
 				}
 			}
-		}
-		else
-		{
-			if (Time.time > gotHitTimer && painDrown)
-			{
-				//Play a small pain sound
-				otherfx.clip = painDrown;
-				otherfx.PlayOneShot(otherfx.clip, 1.0f);
-				gotHitTimer = Time.time + Random.Range(.5f, .75f);
-			}
-		}
-
-		if (!CameraControlComponent.thirdPersonActive)
-		{
-			painKickUpAmt = Random.Range(100, -100);//Choose a random view kick up amount
-			if (painKickUpAmt < 50 && painKickUpAmt > 0) { painKickUpAmt = 50; }//Maintain some randomness of the values, but don't make it too small
-			if (painKickUpAmt < 0 && painKickUpAmt > -50) { painKickUpAmt = -50; }
-
-			painKickSideAmt = Random.Range(100, -100);//Choose a random view kick side amount
-			if (painKickSideAmt < 50 && painKickSideAmt > 0) { painKickSideAmt = 50; }
-			if (painKickSideAmt < 0 && painKickSideAmt > -50) { painKickSideAmt = -50; }
-
-			//create a rotation quaternion with random pain kick values
-			painKickRotation = Quaternion.Euler(mainCamTransform.localRotation.eulerAngles - new Vector3(painKickUpAmt, painKickSideAmt, 0));
-
-			//make screen kick amount based on the damage amount recieved
-			if (zoomed && !WeaponBehaviorComponent.zoomIsBlock)
-			{
-				appliedPainKickAmt = (damage / (painScreenKickAmt * 10)) / 3;
-			}
 			else
 			{
-				appliedPainKickAmt = (damage / (painScreenKickAmt * 10));
+				if (Time.time > gotHitTimer && painDrown)
+				{
+					//Play a small pain sound
+					otherfx.clip = painDrown;
+					otherfx.PlayOneShot(otherfx.clip, 1.0f);
+					gotHitTimer = Time.time + Random.Range(.5f, .75f);
+				}
 			}
 
-			if (blockState)
+			if (!CameraControlComponent.thirdPersonActive)
 			{
-				appliedPainKickAmt = 0.025f;
+				painKickUpAmt = Random.Range(100, -100);//Choose a random view kick up amount
+				if (painKickUpAmt < 50 && painKickUpAmt > 0) { painKickUpAmt = 50; }//Maintain some randomness of the values, but don't make it too small
+				if (painKickUpAmt < 0 && painKickUpAmt > -50) { painKickUpAmt = -50; }
+
+				painKickSideAmt = Random.Range(100, -100);//Choose a random view kick side amount
+				if (painKickSideAmt < 50 && painKickSideAmt > 0) { painKickSideAmt = 50; }
+				if (painKickSideAmt < 0 && painKickSideAmt > -50) { painKickSideAmt = -50; }
+
+				//create a rotation quaternion with random pain kick values
+				painKickRotation = Quaternion.Euler(mainCamTransform.localRotation.eulerAngles - new Vector3(painKickUpAmt, painKickSideAmt, 0));
+
+				//make screen kick amount based on the damage amount recieved
+				if (zoomed && !WeaponBehaviorComponent.zoomIsBlock)
+				{
+					appliedPainKickAmt = (damage / (painScreenKickAmt * 10)) / 3;
+				}
+				else
+				{
+					appliedPainKickAmt = (damage / (painScreenKickAmt * 10));
+				}
+
+				if (blockState)
+				{
+					appliedPainKickAmt = 0.025f;
+				}
+
+				//make sure screen kick is not so large that view rotates past arm models 
+				appliedPainKickAmt = Mathf.Clamp(appliedPainKickAmt, 0.0f, 0.15f);
+
+				//smooth current camera angles to pain kick angles using Slerp
+				mainCamTransform.localRotation = Quaternion.Slerp(mainCamTransform.localRotation, painKickRotation, appliedPainKickAmt);
 			}
 
-			//make sure screen kick is not so large that view rotates past arm models 
-			appliedPainKickAmt = Mathf.Clamp(appliedPainKickAmt, 0.0f, 0.15f);
-
-			//smooth current camera angles to pain kick angles using Slerp
-			mainCamTransform.localRotation = Quaternion.Slerp(mainCamTransform.localRotation, painKickRotation, appliedPainKickAmt);
-		}
-
-		if (WeaponBehaviorComponent.zoomIsBlock)
-		{
-			if (!WeaponBehaviorComponent.hitCancelsBlock)
+			if (WeaponBehaviorComponent.zoomIsBlock)
 			{
-				blockState = false;
+				if (!WeaponBehaviorComponent.hitCancelsBlock)
+				{
+					blockState = false;
+				}
+				else
+				{
+					zoomed = false;
+				}
 			}
-			else
-			{
-				zoomed = false;
-			}
-		}
 
-		//Call Die function if player's hitpoints have been depleted
-		if (hitPoints < 1.0f)
-		{
-			SendMessage("Die");//use SendMessage() to allow other script components on this object to detect player death
+			//Call Die function if player's hitpoints have been depleted
+			if (hitPoints < 1.0f)
+			{
+				SendMessage("Die");//use SendMessage() to allow other script components on this object to detect player death
+			}
 		}
 	}
+
 
 	public void ApplyDamageEmerald(object[] DamageArray)
 	{//damage function for Emerald AI asset
 		ApplyDamage((float)DamageArray[0], (Transform)DamageArray[1], (bool)DamageArray[2]);
 	}
 
-	void Die()
+	public void Die()
 	{
 
 		bulletTimeActive = false;//set bulletTimeActive to false so fadeout wont take longer if bullet time is active
@@ -1706,18 +1716,16 @@ public class FPSPlayer : MonoBehaviour
 		if (collisionInfo.collider.tag == "KeyItem")
 		{
 			obj.SetActive(false);
-			pickupCollected.gameObject.SetActive(true);
+			
 			collected++;
 			collectedText.text = "Items Collected  : " + collected;
+			gameController.ItemCollected();
 
-			Invoke("OffItemCollected", 2);
-		}
+
+				}
 
 	}
-	void OffItemCollected()
-    {
-		pickupCollected.gameObject.SetActive(false);
-    }
+
 
 
 }
