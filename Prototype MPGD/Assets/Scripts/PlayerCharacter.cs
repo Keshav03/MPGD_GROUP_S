@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 //A script used to define the behaviour of the controlled playable character.
-public class PlayerCharacter : MonoBehaviour
+public class PlayerCharacterIn : MonoBehaviour
 {
     //Variables to be used.
     public int moveSpeed = 5;
@@ -102,7 +102,7 @@ public class PlayerCharacter : MonoBehaviour
         healthBar.SetHealth(health);
         if (health <= 0)
         {
-            gameOver();
+            //gameOver();
         }
     }
 
@@ -164,10 +164,10 @@ public class PlayerCharacter : MonoBehaviour
     }
 
     //A function used to make the game reset if the player's Health reaches 0.
-    public void gameOver()
+    /*public void gameOver()
     {
         gameController.reset();
-    }
+    }*/
 
 
 
