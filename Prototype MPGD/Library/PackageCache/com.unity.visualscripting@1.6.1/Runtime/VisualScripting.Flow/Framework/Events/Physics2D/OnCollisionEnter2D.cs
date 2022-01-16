@@ -1,13 +1,3 @@
-using System;
-
-namespace Unity.VisualScripting
-{
-    /// <summary>
-    /// Called when an incoming collider makes contact with this object's collider.
-    /// </summary>
-    public sealed class OnCollisionEnter2D : CollisionEvent2DUnit
-    {
-        public override Type MessageListenerType => typeof(UnityOnCollisionEnter2DMessageListener);
-        protected override string hookName => EventHooks.OnCollisionEnter2D;
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:122825938a7e52ba2287ab4c688bb5bad223afedab39d0be593caa439936c5a0
+size 427

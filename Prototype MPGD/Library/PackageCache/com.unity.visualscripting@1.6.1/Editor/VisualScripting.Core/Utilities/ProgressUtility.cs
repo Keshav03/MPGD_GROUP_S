@@ -1,32 +1,3 @@
-using UnityEditor;
-
-namespace Unity.VisualScripting
-{
-    public static class ProgressUtility
-    {
-        public static void DisplayProgressBar(string title, string info, float progress)
-        {
-            if (UnityThread.allowsAPI)
-            {
-                EditorUtility.DisplayProgressBar(title, info, progress);
-            }
-            else
-            {
-                BackgroundWorker.ReportProgress(title, progress);
-            }
-        }
-
-#if VISUAL_SCRIPT_INTERNAL
-        [MenuItem("Tools/Bolt/Internal/Force Clear Progress Bar", priority = LudiqProduct.DeveloperToolsMenuPriority + 601)]
-#endif
-        public static void ClearProgressBar()
-        {
-            if (UnityThread.allowsAPI)
-            {
-                EditorUtility.ClearProgressBar();
-            }
-
-            BackgroundWorker.ClearProgress();
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:ee6066078f12e6894b945f47d533b386460333733c0ecfe5b2641030897baa94
+size 858

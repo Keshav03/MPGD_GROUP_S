@@ -1,27 +1,3 @@
-using UnityEngine;
-
-namespace Unity.VisualScripting
-{
-    public static class Ensure
-    {
-        private static readonly EnsureThat instance = new EnsureThat();
-
-        public static bool IsActive { get; set; }
-
-        public static void Off() => IsActive = false;
-
-        public static void On() => IsActive = true;
-
-        public static EnsureThat That(string paramName)
-        {
-            instance.paramName = paramName;
-            return instance;
-        }
-
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-        private static void OnRuntimeMethodLoad()
-        {
-            IsActive = Application.isEditor || Debug.isDebugBuild;
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:887cd0c5ab1ba89dea5c28a0762d607f59a9e3aae543666517790b9e514cbda4
+size 701

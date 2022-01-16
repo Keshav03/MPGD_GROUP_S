@@ -1,13 +1,3 @@
-using System;
-
-namespace Unity.VisualScripting
-{
-    /// <summary>
-    /// Called each frame where a collider on another object is touching this object's collider.
-    /// </summary>
-    public sealed class OnCollisionStay2D : CollisionEvent2DUnit
-    {
-        public override Type MessageListenerType => typeof(UnityOnCollisionStay2DMessageListener);
-        protected override string hookName => EventHooks.OnCollisionStay2D;
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:4e15649db3e807a8ae302894bf186d62553cd2f21959f9893d3d6ab99fb2e69c
+size 437

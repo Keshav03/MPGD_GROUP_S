@@ -1,13 +1,3 @@
-using System;
-
-namespace Unity.VisualScripting
-{
-    /// <summary>
-    /// Called when a collider exits the trigger.
-    /// </summary>
-    public sealed class OnTriggerExit2D : TriggerEvent2DUnit
-    {
-        public override Type MessageListenerType => typeof(UnityOnTriggerExit2DMessageListener);
-        protected override string hookName => EventHooks.OnTriggerExit2D;
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:3b3c09d861a2f2eafaeb32ce6b98a48a3f976d8e0f788c9ada047eba9d5c1f8b
+size 382

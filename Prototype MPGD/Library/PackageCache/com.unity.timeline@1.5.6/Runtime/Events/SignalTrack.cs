@@ -1,20 +1,3 @@
-using System;
-
-namespace UnityEngine.Timeline
-{
-    /// <summary>
-    /// Use this track to emit signals to a bound SignalReceiver.
-    /// </summary>
-    /// <remarks>
-    /// This track cannot contain clips.
-    /// </remarks>
-    /// <seealso cref="UnityEngine.Timeline.SignalEmitter"/>
-    /// <seealso cref="UnityEngine.Timeline.SignalReceiver"/>
-    /// <seealso cref="UnityEngine.Timeline.SignalAsset"/>
-    [Serializable]
-    [TrackBindingType(typeof(SignalReceiver))]
-    [TrackColor(0.25f, 0.25f, 0.25f)]
-    [ExcludeFromPreset]
-    [TimelineHelpURL(typeof(SignalTrack))]
-    public class SignalTrack : MarkerTrack {}
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:8954e59d1a1b50b276f09b5c95dec9d6daebf52f1e7ed0bb52fe7382f1a6e5c3
+size 630

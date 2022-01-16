@@ -1,27 +1,3 @@
-using UnityEditor;
-using UnityEngine;
-
-namespace Unity.VisualScripting
-{
-    public sealed class UnitOptionsWizard : Wizard
-    {
-        public static UnitOptionsWizard instance { get; }
-
-        static UnitOptionsWizard()
-        {
-            instance = new UnitOptionsWizard();
-        }
-
-        public UnitOptionsWizard() : base()
-        {
-            pages.Add(new AssemblyOptionsPage());
-            pages.Add(new TypeOptionsPage());
-        }
-
-        protected override void ConfigureWindow()
-        {
-            window.titleContent = new GUIContent("Unit Options Wizard");
-            window.minSize = window.maxSize = new Vector2(500, 400);
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:0966964ce92b6d483a295bc53f3521d5461e62f94d09048ba06fe460072e4664
+size 674

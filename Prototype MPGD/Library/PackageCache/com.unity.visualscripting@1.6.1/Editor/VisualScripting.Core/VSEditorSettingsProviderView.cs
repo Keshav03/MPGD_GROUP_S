@@ -1,35 +1,3 @@
-using UnityEngine;
-using UnityEditor;
-
-namespace Unity.VisualScripting
-{
-    public class VSEditorSettingsProviderView : SettingsProvider
-    {
-        private const string path = "Preferences/Visual Scripting";
-        private const string title = "Visual Scripting";
-        public const string ID = "Bolt";
-
-        public VSEditorSettingsProviderView() : base(path, SettingsScope.User)
-        {
-            label = title;
-        }
-
-        public override void OnGUI(string searchContext)
-        {
-            GUILayout.Space(5f);
-
-            GUILayout.Space(10f);
-
-            // happens when opening unity with the settings window already opened. there's a delay until the singleton is assigned
-            if (BoltCore.instance == null)
-            {
-                EditorGUILayout.HelpBox("Loading Configuration...", MessageType.Info);
-                return;
-            }
-
-            BoltProduct instance = (BoltProduct)ProductContainer.GetProduct(ID);
-
-            instance.configurationPanel.PreferenceItem();
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:39a082485dd0c3c162d50599bee82bc4b7019f5c03ea9f6e98cf84ad0e8a4b91
+size 1046

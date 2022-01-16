@@ -1,19 +1,3 @@
-using UnityEditor;
-using Unity.VisualScripting.YamlDotNet.RepresentationModel;
-using UnityObject = UnityEngine.Object;
-
-namespace Unity.VisualScripting
-{
-    public class PluginIconMapper : AssetPostprocessor
-    {
-        private static void AddIconMap(YamlMappingNode iconMapNode, string assetGuid)
-        {
-            // Add our own mappings.
-            // https://forum.unity3d.com/threads/custom-asset-icons.118656/#post-2443602
-
-            iconMapNode.Add("fileID", "2800000");
-            iconMapNode.Add("guid", assetGuid);
-            iconMapNode.Add("type", "3");
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:41a2b3c6776d93d01834a9f2787e5f9f1170efc5157634dcaf7f029be14c8927
+size 596

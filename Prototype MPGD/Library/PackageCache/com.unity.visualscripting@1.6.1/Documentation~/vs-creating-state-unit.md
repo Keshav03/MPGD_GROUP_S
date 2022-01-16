@@ -1,12 +1,3 @@
-#Creating a state unit
-
-State Units are similar to [super units](vs-super-units.md), however for state graphs rather than for script graphs; you can nest a whole state graph into a single unit in a parent script graph.
-
-To create a state unit:
-
-1. Do one of the following:
-   - Select **Nesting** **&gt; State Unit** in the fuzzy finder.
-     **Double-click** the node or use the Edit Graph button from its inspector to open the nested graph. 
-   - From a graph:
-     - Drag and drop the graph asset into your graph, or
-     - Select it from the Graphs category in the fuzzy finder.
+version https://git-lfs.github.com/spec/v1
+oid sha256:cabaa94a1285b5a0f074afe7b55632c63e6297b97d27bd4143abd481e549fa40
+size 583

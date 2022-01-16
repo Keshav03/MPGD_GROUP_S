@@ -1,20 +1,3 @@
-{
-  "name": "com.unity.sysroot",
-  "displayName": "Sysroot Base",
-  "version": "1.0.0",
-  "unity": "2019.3",
-  "keywords": [
-    "unity",
-    "linux",
-    "sysroot"
-  ],
-  "description": "This is the base sysroot package required by all sysroot and toolchain packages",
-  "upmCi": {
-    "footprint": "bc225617e89c3d69d4a226e77a965fb7744d83ec"
-  },
-  "repository": {
-    "url": "https://github.com/Unity-Technologies/com.unity.sysroot.git",
-    "type": "git",
-    "revision": "0b6b1770930fd9a6c9365613ff2cba3eb81810dd"
-  }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:292bfd8003a0858962d5ddb60ef95293fdec0e839c481426ce10e412e76e4ad2
+size 524

@@ -1,21 +1,3 @@
-using System.Collections.Generic;
-
-namespace Unity.VisualScripting
-{
-    public class AboutPluginsPage : ListPage
-    {
-        public AboutPluginsPage(IEnumerable<Plugin> plugins)
-        {
-            Ensure.That(nameof(plugins)).IsNotNull(plugins);
-
-            title = "About Plugins";
-            shortTitle = "Plugins";
-            icon = BoltCore.Resources.LoadIcon("Icons/Windows/AboutWindow/AboutPluginsPage.png");
-
-            foreach (var plugin in plugins)
-            {
-                pages.Add(new AboutablePage(plugin.manifest));
-            }
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:b9ba2cfbf639ccd7ec2d24de1749d5066e678d44b88fc48affe273c8824c7951
+size 578

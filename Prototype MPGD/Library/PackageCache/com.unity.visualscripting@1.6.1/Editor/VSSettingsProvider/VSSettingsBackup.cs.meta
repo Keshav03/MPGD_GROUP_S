@@ -1,15 +1,3 @@
-fileFormatVersion: 2
-<<<<<<< HEAD:Packages/com.unity.bolt/Editor/Bolt.Core/BoltGUI.cs.meta
-guid: 50455e66302b715488a9218e30b0ab24
-=======
-guid: 9b13d76d6b80b4b1ab4d0fac8c174df4
->>>>>>> [1010] Visual Script Project Settings UI Change:Packages/com.unity.bolt/VSSettingsProvider/VSSettingsBackup.cs.meta
-MonoImporter:
-  externalObjects: {}
-  serializedVersion: 2
-  defaultReferences: []
-  executionOrder: 0
-  icon: {instanceID: 0}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+version https://git-lfs.github.com/spec/v1
+oid sha256:58bd689028017d6a8b9d450dbc99aa86baf6a3b7ecef224728305e22d04c53d6
+size 484

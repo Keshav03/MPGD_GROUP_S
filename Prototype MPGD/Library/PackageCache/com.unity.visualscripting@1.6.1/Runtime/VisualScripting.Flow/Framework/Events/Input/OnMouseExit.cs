@@ -1,14 +1,3 @@
-using System;
-
-namespace Unity.VisualScripting
-{
-    /// <summary>
-    /// Called when the mouse is not any longer over the GUI element or collider.
-    /// </summary>
-    [UnitCategory("Events/Input")]
-    public sealed class OnMouseExit : GameObjectEventUnit<EmptyEventArgs>
-    {
-        public override Type MessageListenerType => typeof(UnityOnMouseExitMessageListener);
-        protected override string hookName => EventHooks.OnMouseExit;
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:59b1e859ff736965744b68da3576a9c39ac83b87706c48a12425fbfcd361989f
+size 454

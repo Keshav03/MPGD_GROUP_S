@@ -1,21 +1,3 @@
-{
-    "name": "VSSettingsProvider",
-    "references": [
-        "Unity.VisualScripting.Core",
-        "Unity.VisualScripting.Core.Editor",
-        "Unity.VisualScripting.Flow",
-        "Unity.VisualScripting.Flow.Editor",
-        "Unity.VisualScripting.State"
-    ],
-    "includePlatforms": [
-        "Editor"
-    ],
-    "excludePlatforms": [],
-    "allowUnsafeCode": false,
-    "overrideReferences": false,
-    "precompiledReferences": [],
-    "autoReferenced": true,
-    "defineConstraints": [],
-    "versionDefines": [],
-    "noEngineReferences": false
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:3c77119830d53b1801afa3283f4e6e1314cc746ec1fe762ecb920bc9f159e4f9
+size 557

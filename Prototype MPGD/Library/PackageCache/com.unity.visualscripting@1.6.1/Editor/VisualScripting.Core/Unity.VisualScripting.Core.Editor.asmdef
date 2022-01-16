@@ -1,12 +1,3 @@
-{
-    "name": "Unity.VisualScripting.Core.Editor",
-    "references": [
-        "Unity.VisualScripting.Core"
-    ],
-    "optionalUnityReferences": [],
-    "includePlatforms": [
-        "Editor"
-    ],
-    "excludePlatforms": [],
-    "allowUnsafeCode": false
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:775385c0d97a2cc41e80c4addffba962a061a3f513c6653c6783f0d799d6fb58
+size 258

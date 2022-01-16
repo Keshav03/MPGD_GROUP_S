@@ -1,21 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
-
-namespace Unity.VisualScripting
-{
-    public class AcknowledgementsPage : ListPage
-    {
-        public AcknowledgementsPage(IEnumerable<Plugin> plugins)
-        {
-            Ensure.That(nameof(plugins)).IsNotNull(plugins);
-
-            title = shortTitle = "Acknowledgements";
-            icon = BoltCore.Resources.LoadIcon("Icons/Windows/AboutWindow/AcknowledgementPage.png");
-
-            foreach (var acknowledgement in plugins.ResolveDependencies().SelectMany(plugin => plugin.resources.acknowledgements))
-            {
-                pages.Add(new AcknowledgementPage(acknowledgement));
-            }
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:ba6174cd56580d6d04855993e4ac5fafd8c46d76918b7ce2fee4e0d89cb55bfd
+size 681

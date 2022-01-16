@@ -1,14 +1,3 @@
-using System;
-
-namespace Unity.VisualScripting
-{
-    /// <summary>
-    /// Called when the user has clicked on the GUI element or collider and is still holding down the mouse.
-    /// </summary>
-    [UnitCategory("Events/Input")]
-    public sealed class OnMouseDrag : GameObjectEventUnit<EmptyEventArgs>
-    {
-        public override Type MessageListenerType => typeof(UnityOnMouseDragMessageListener);
-        protected override string hookName => EventHooks.OnMouseDrag;
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:92d6223fb3b9038720d3f58189ee372edc53650fa035e9a80160ea2c8d304ee4
+size 481

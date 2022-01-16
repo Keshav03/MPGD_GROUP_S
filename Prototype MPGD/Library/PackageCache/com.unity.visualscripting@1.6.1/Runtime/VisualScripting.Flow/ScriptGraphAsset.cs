@@ -1,20 +1,3 @@
-using UnityEngine;
-
-namespace Unity.VisualScripting
-{
-    [CreateAssetMenu(menuName = "Visual Scripting/Script Graph", fileName = "New Script Graph", order = 81)]
-    [HelpURL("https://docs.unity3d.com/Packages/com.unity.visualscripting@latest/index.html?subfolder=/manual/vs-flow.html")]
-    public sealed class ScriptGraphAsset : Macro<FlowGraph>
-    {
-        [ContextMenu("Show Data...")]
-        protected override void ShowData()
-        {
-            base.ShowData();
-        }
-
-        public override FlowGraph DefaultGraph()
-        {
-            return FlowGraph.WithInputOutput();
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:2e05be369fe3129507e9bd84b056567df2aa5277af30f0c92192b78c1edf1a8b
+size 611

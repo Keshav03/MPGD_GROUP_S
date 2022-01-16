@@ -1,26 +1,3 @@
-using System;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace Unity.VisualScripting
-{
-    [Analyser(typeof(For))]
-    public class ForAnalyser : UnitAnalyser<For>
-    {
-        public ForAnalyser(GraphReference reference, For target)
-            : base(reference, target) { }
-
-        protected override IEnumerable<Warning> Warnings()
-        {
-            foreach (var baseWarning in base.Warnings())
-            {
-                yield return baseWarning;
-            }
-
-            if (unit.IsStepValueZero())
-            {
-                yield return Warning.Caution("The step value is 0. This will prevent the For unit to be executed or can cause an infinite loop.");
-            }
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:5389c34c5a78a167df85339c7e1f4cd95ea6e61740b33d13749c5b8223608fbd
+size 723

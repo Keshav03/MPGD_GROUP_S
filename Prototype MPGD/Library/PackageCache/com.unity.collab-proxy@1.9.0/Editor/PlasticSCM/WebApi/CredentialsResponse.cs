@@ -1,34 +1,3 @@
-﻿using System.Reflection;
-
-using Unity.Plastic.Newtonsoft.Json;
-
-using PlasticGui.WebApi.Responses;
-
-namespace Unity.PlasticSCM.Editor.WebApi
-{
-    [ObfuscationAttribute(Exclude = true)]
-    public class CredentialsResponse
-    {
-        [JsonProperty("error")]
-        public ErrorResponse.ErrorFields Error { get; set; }
-
-        public enum TokenType : int
-        {
-            Password = 0,
-            Bearer = 1,
-        }
-
-        [JsonIgnore]
-        public TokenType Type
-        {
-            get { return (TokenType)TokenTypeValue; }
-        }
-
-        [JsonProperty("email")]
-        public string Email;
-        [JsonProperty("token")]
-        public string Token;
-        [JsonProperty("tokenTypeValue")]
-        public int TokenTypeValue;
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:94044610294649adcf50ae1d9027a5d40318be18975540bc153eba8315de009c
+size 765

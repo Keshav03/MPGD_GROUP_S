@@ -1,13 +1,3 @@
-using System;
-
-namespace Unity.VisualScripting
-{
-    /// <summary>
-    /// Called when a collider enters the trigger.
-    /// </summary>
-    public sealed class OnTriggerEnter2D : TriggerEvent2DUnit
-    {
-        public override Type MessageListenerType => typeof(UnityOnTriggerEnter2DMessageListener);
-        protected override string hookName => EventHooks.OnTriggerEnter2D;
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:5472c20a7e141594e82f76194d53eb4cacc0e1b64d7df1bb53a252c945674854
+size 386

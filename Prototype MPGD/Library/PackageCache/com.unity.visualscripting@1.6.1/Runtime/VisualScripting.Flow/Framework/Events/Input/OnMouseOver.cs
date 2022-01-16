@@ -1,14 +1,3 @@
-using System;
-
-namespace Unity.VisualScripting
-{
-    /// <summary>
-    /// Called every frame while the mouse is over the GUI element or collider.
-    /// </summary>
-    [UnitCategory("Events/Input")]
-    public sealed class OnMouseOver : GameObjectEventUnit<EmptyEventArgs>
-    {
-        public override Type MessageListenerType => typeof(UnityOnMouseOverMessageListener);
-        protected override string hookName => EventHooks.OnMouseOver;
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:5c32fe4d6a4128e1210bd18388e52af689d1f1aa00279b93037dac07dcfd4e05
+size 452

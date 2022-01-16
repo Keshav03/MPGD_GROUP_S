@@ -1,17 +1,3 @@
-using System;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
-namespace Unity.VisualScripting
-{
-    public static class ReferenceCollector
-    {
-        public static event Action onSceneUnloaded;
-
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-        private static void Initialize()
-        {
-            SceneManager.sceneUnloaded += scene => onSceneUnloaded?.Invoke();
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:e5e61e8a5378820c88720967982cd3db03dff41c03cf099479990b16e0d6ef7c
+size 435

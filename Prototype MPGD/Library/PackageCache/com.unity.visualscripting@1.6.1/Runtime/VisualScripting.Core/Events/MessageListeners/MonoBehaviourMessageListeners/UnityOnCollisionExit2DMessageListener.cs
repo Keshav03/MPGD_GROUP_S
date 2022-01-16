@@ -1,13 +1,3 @@
-using UnityEngine;
-
-namespace Unity.VisualScripting
-{
-    [AddComponentMenu("")]
-    public sealed class UnityOnCollisionExit2DMessageListener : MessageListener
-    {
-        private void OnCollisionExit2D(Collision2D collision)
-        {
-            EventBus.Trigger(EventHooks.OnCollisionExit2D, gameObject, collision);
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:d7c525639bb0df4cc6384d8327ac133b7ab84767d2eee630972faa7307b1067d
+size 340

@@ -1,24 +1,3 @@
-using UnityEngine;
-
-namespace Unity.VisualScripting
-{
-    [Singleton(Name = "Coroutine Runner", Automatic = true, Persistent = true)]
-    [AddComponentMenu("")]
-    [DisableAnnotation]
-    [IncludeInSettings(false)]
-    public sealed class CoroutineRunner : MonoBehaviour, ISingleton
-    {
-        private void Awake()
-        {
-            Singleton<CoroutineRunner>.Awake(this);
-        }
-
-        private void OnDestroy()
-        {
-            StopAllCoroutines();
-            Singleton<CoroutineRunner>.OnDestroy(this);
-        }
-
-        public static CoroutineRunner instance => Singleton<CoroutineRunner>.instance;
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:88c637f0fb64c0123fedbce77fd1e555f72028e5b2c6abc59e5291a2a6d86703
+size 630

@@ -1,14 +1,3 @@
-using System;
-
-namespace Unity.VisualScripting
-{
-    /// <summary>
-    /// Called when the mouse is released over the same GUI element or collider as it was pressed.
-    /// </summary>
-    [UnitCategory("Events/Input")]
-    public sealed class OnMouseUpAsButton : GameObjectEventUnit<EmptyEventArgs>
-    {
-        public override Type MessageListenerType => typeof(UnityOnMouseUpAsButtonMessageListener);
-        protected override string hookName => EventHooks.OnMouseUpAsButton;
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:04d325d3f0cd6528370492da97c65d9372207b625f4ad9ec675a572b01a5578d
+size 489

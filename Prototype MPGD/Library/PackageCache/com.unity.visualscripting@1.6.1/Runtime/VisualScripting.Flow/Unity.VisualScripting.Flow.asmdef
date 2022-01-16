@@ -1,22 +1,3 @@
-{
-    "name": "Unity.VisualScripting.Flow",
-    "references": [
-        "Unity.VisualScripting.Core",
-        "Unity.InputSystem"
-    ],
-    "includePlatforms": [],
-    "excludePlatforms": [],
-    "allowUnsafeCode": false,
-    "overrideReferences": false,
-    "precompiledReferences": [],
-    "autoReferenced": true,
-    "defineConstraints": [],
-    "versionDefines": [
-        {
-            "name": "com.unity.inputsystem",
-            "expression": "1.0.1",
-            "define": "PACKAGE_INPUT_SYSTEM_EXISTS"
-        }
-    ],
-    "noEngineReferences": false
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:3de8ac342e566ed82bb09ebe6e5d6e74d611fd68710546cce52ba83325a42c02
+size 563
